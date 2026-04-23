@@ -26,13 +26,19 @@ const Hero = props => {
     if (longQuote) {
       return longQuote.replace(/\\n/g, '\n').trim()
     }
-
-    const greetingWords = siteConfig('GREETING_WORDS', '')
-    return greetingWords
-      .split(',')
-      .map(word => word.trim())
-      .filter(Boolean)
-      .join('\n')
+    return (
+      "That's here.\n" +
+      "That's home.\n" +
+      "That's us.\n\n" +
+      'On it, everyone you love, everyone you know, everyone you ever heard of, every human being who ever was, lived out their lives.\n\n' +
+      'The aggregate of our joy and suffering, thousands of confident religions, ideologies and economic doctrines,\n' +
+      'every hunter and forager, every hero and coward, every creator and destroyer of civilization,\n' +
+      'every king and peasant, every young couple in love, every mother and father, hopeful child,\n' +
+      'inventor and explorer, every teacher of morals, every corrupt politician,\n' +
+      'every superstar, every supreme leader, every saint and sinner in the history of our species,\n' +
+      'lived there, on a mote of dust, suspended in a sunbeam.\n\n' +
+      '— Carl Sagan, in Cosmos: A Spacetime Odyssey (S01E13) Unafraid of the Dark.'
+    )
   }, [])
 
   useEffect(() => {
@@ -85,35 +91,26 @@ const Hero = props => {
       id='header'
       style={{ zIndex: 1 }}
       className='w-full h-screen relative bg-black'>
-      <div className='text-white absolute inset-0 flex items-center justify-center w-full px-6 md:px-12 lg:px-20'>
-        <div className='w-full max-w-7xl grid items-center gap-8 lg:gap-16 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)]'>
-          <div className='flex flex-col items-center text-center lg:items-start lg:text-left'>
-            {/* 站点标题 */}
-            <div className='font-black text-4xl md:text-5xl shadow-text'>
-              {siteInfo?.title || siteConfig('TITLE')}
-            </div>
-
-            {/* 首页导航大按钮 */}
-            {siteConfig('HEXO_HOME_NAV_BUTTONS', null, CONFIG) && (
-              <NavButtonGroup {...props} />
-            )}
-          </div>
-
-          {/* 站点欢迎语 */}
-          <div className='w-full lg:flex lg:justify-end'>
-            <div className='w-full max-w-2xl rounded-2xl border border-white/20 bg-black/20 p-6 md:p-8 backdrop-blur-sm text-left shadow-text'>
-              <div className='mb-3 text-sm uppercase tracking-[0.35em] text-white/70'>
-                Welcome
-              </div>
-              <div
-                id='typed'
-                className='min-h-[10rem] whitespace-pre-wrap break-words text-base font-medium leading-8 md:text-lg'
-              />
-            </div>
+      <div className='text-white absolute inset-0 w-full'>
+        <div className='absolute top-24 right-5 md:right-10 lg:right-16 w-[min(30rem,92vw)] max-w-xl'>
+          <div className='rounded-2xl border border-white/15 bg-black/20 p-5 md:p-6 backdrop-blur-sm text-left shadow-text'>
+            <div
+              id='typed'
+              className='min-h-[10rem] whitespace-pre-wrap break-words text-xs font-medium leading-6 md:text-sm'
+            />
           </div>
         </div>
 
-        {/* 滚动按钮 */}
+        <div className='absolute inset-0 flex flex-col h-full items-center justify-center w-full px-6 md:px-12 lg:px-20'>
+          <div className='font-black text-4xl md:text-5xl shadow-text text-center'>
+            {siteInfo?.title || siteConfig('TITLE')}
+          </div>
+
+          {siteConfig('HEXO_HOME_NAV_BUTTONS', null, CONFIG) && (
+            <NavButtonGroup {...props} />
+          )}
+        </div>
+
         <div
           onClick={scrollToWrapper}
           className='z-10 cursor-pointer w-full text-center py-4 text-3xl absolute bottom-10 text-white'>
