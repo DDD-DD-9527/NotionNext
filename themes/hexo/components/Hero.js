@@ -92,23 +92,29 @@ const Hero = props => {
       style={{ zIndex: 1 }}
       className='w-full h-screen relative bg-black'>
       <div className='text-white absolute inset-0 w-full'>
-        <div className='absolute z-20 top-24 right-5 md:right-10 lg:right-16 w-[min(30rem,92vw)] max-w-xl'>
-          <div className='rounded-2xl border border-white/15 bg-black/20 p-5 md:p-6 backdrop-blur-sm text-left shadow-text'>
-            <div
-              id='typed'
-              className='min-h-[10rem] max-h-[14rem] md:max-h-[16rem] lg:max-h-[18rem] overflow-auto overscroll-contain whitespace-pre-wrap break-words text-xs font-medium leading-6 md:text-sm'
-            />
-          </div>
-        </div>
+        <div className='absolute inset-0 px-6 md:px-12 lg:px-20'>
+          <div className='h-full w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(22rem,28rem)] gap-8 lg:gap-12'>
+            <div className='flex flex-col h-full items-center justify-center w-full text-center'>
+              <div className='font-black text-4xl md:text-5xl shadow-text'>
+                {siteInfo?.title || siteConfig('TITLE')}
+              </div>
 
-        <div className='absolute z-10 inset-0 flex flex-col h-full items-center justify-center w-full px-6 md:px-12 lg:px-20'>
-          <div className='font-black text-4xl md:text-5xl shadow-text text-center'>
-            {siteInfo?.title || siteConfig('TITLE')}
-          </div>
+              {siteConfig('HEXO_HOME_NAV_BUTTONS', null, CONFIG) && (
+                <NavButtonGroup {...props} />
+              )}
+            </div>
 
-          {siteConfig('HEXO_HOME_NAV_BUTTONS', null, CONFIG) && (
-            <NavButtonGroup {...props} />
-          )}
+            <div className='flex justify-center lg:justify-end lg:pt-24 pb-24 lg:pb-0'>
+              <div className='w-full max-w-xl'>
+                <div className='rounded-2xl border border-white/15 bg-black/20 p-5 md:p-6 backdrop-blur-sm text-left shadow-text'>
+                  <div
+                    id='typed'
+                    className='whitespace-pre-wrap break-words text-[0.7rem] font-medium leading-5 md:text-xs md:leading-6'
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div
