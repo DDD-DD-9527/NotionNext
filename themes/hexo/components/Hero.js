@@ -96,7 +96,7 @@ const Hero = props => {
           <div className='rounded-2xl border border-white/15 bg-black/20 p-5 md:p-6 backdrop-blur-sm text-left shadow-text'>
             <div
               id='typed'
-              className='min-h-[10rem] whitespace-pre-wrap break-words text-xs font-medium leading-6 md:text-sm'
+              className='min-h-[10rem] max-h-[14rem] md:max-h-[16rem] lg:max-h-[18rem] overflow-auto overscroll-contain whitespace-pre-wrap break-words text-xs font-medium leading-6 md:text-sm'
             />
           </div>
         </div>
