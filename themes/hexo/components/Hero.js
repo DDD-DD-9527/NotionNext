@@ -92,7 +92,7 @@ const Hero = props => {
       style={{ zIndex: 1 }}
       className='w-full h-screen relative bg-black'>
       <div className='text-white absolute inset-0 w-full'>
-        <div className='absolute top-24 right-5 md:right-10 lg:right-16 w-[min(30rem,92vw)] max-w-xl'>
+        <div className='absolute z-20 top-24 right-5 md:right-10 lg:right-16 w-[min(30rem,92vw)] max-w-xl'>
           <div className='rounded-2xl border border-white/15 bg-black/20 p-5 md:p-6 backdrop-blur-sm text-left shadow-text'>
             <div
               id='typed'
@@ -101,7 +101,7 @@ const Hero = props => {
           </div>
         </div>
 
-        <div className='absolute inset-0 flex flex-col h-full items-center justify-center w-full px-6 md:px-12 lg:px-20'>
+        <div className='absolute z-10 inset-0 flex flex-col h-full items-center justify-center w-full px-6 md:px-12 lg:px-20'>
           <div className='font-black text-4xl md:text-5xl shadow-text text-center'>
             {siteInfo?.title || siteConfig('TITLE')}
           </div>
